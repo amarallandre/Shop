@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Histórico de Compras</h1>
+{% for compra in historico_compras %}
+<p>Compra #{{ compra.id }}</p>
+<ul>
+  {% for produto_info in compra.produtos %}
+  <li>
+    Nome: {{ produto_info.nome }}, Quantidade: {{ produto_info.quantidade }},
+    Subtotal: R$ {{ produto_info.subtotal }}
+  </li>
+  {% endfor %}
+</ul>
+<p>Total da Compra: R$ {{ compra.total_compra }}</p>
+<form method="post" action="{% url 'limpar_historico' %}">
+  {% csrf_token %}
+  <button type="submit">Limpar Histórico</button>
+</form>
+{% endfor %} {% endblock %}

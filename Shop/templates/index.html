@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="row">
+  <div class="col-md-8">
+    <h2 class="mt-4">Produtos Disponíveis</h2>
+    <div class="produtos-container">
+      {% for produto in produtos %}
+      <div class="produto card mt-3">
+        <div class="card-body">
+          <h3 class="card-title">{{ produto.nome }}</h3>
+          <p class="card-text">{{ produto.descricao }}</p>
+          <p class="card-text">Preço: R$ {{ produto.preco }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h2 class="mt-4">Seu Carrinho</h2>
+    <ul id="carrinho-lista" class="list-group"></ul>
+    <button id="limpar-carrinho" class="btn btn-success mt-3">
+      Limpar Carrinho
+    </button>
+    <button id="finalizar-compra" class="btn btn-success mt-3">
+      Finalizar Compra
+    </button>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container mt-4">
+  <h2>Adicionar Novo Produto</h2>
+  <form method="post" action="{% url 'adicionar_produto' %}">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Adicionar Produto</button>
+  </form>
+</div>
+{% endblock %}

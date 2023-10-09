@@ -1,0 +1,32 @@
+{% load static %} {% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="{% static 'js/script.js' %}"></script>
+    <title>{% block title %}Minha Loja{% endblock %}</title>
+  </head>
+  <body>
+    <header class="bg-dark text-light text-center py-3">
+      <h1>Minha Loja</h1>
+      <div id="navigation">
+        <a href="{% url 'index' %}">Página Inicial</a>
+        <a href="{% url 'adicionar_produto' %}">Adicionar produtos</a>
+        <a href="{% url 'Finalizar_Compra' %}">Historico de compras</a>
+      </div>
+    </header>
+    <main class="container mt-3">{% block content %}{% endblock %}</main>
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+      <p>&copy; 2023 Minha Loja</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
